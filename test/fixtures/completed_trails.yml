@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  trail_id: MyString
+  user: one
+  type: 
+
+two:
+  trail_id: MyString
+  user: two
+  type: 

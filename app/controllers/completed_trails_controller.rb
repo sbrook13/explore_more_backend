@@ -1,16 +1,16 @@
 class CompletedTrailsController < ApplicationController
   def index
-    @completed_trails = CompletedTails.where(user_id: @user.id)
+    @completed_trails = CompletedTrail.where(user_id: @user.id)
     render json: @completed_trails
   end
 
   def show
-    @completed_trail = CompletedTails.find(params[:id])
+    @completed_trail = CompletedTrail.find(params[:id])
     render json: @completed_trail
   end
 
   def create
-    @completed_trail = CompletedTails.new({
+    @completed_trail = CompletedTrail.new({
       user_id: @user.id,
       trail_id: params[:trail_id],
       trail_type: params[:trail_type]
@@ -25,13 +25,13 @@ class CompletedTrailsController < ApplicationController
   end
 
   def update
-    @completed_trail = CompletedTails.find(params[:id])
+    @completed_trail = CompletedTrail.find(params[:id])
     @completed_trail.update(completed_trail_params)
     render json: @completed_trail
   end
 
   def destroy
-    @completed_trail = CompletedTails.find(params[:id])
+    @completed_trail = CompletedTrail.find(params[:id])
     @completed_trail.destroy
     render json: {message: "Removed trail."}
   end

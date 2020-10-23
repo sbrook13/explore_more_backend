@@ -6,6 +6,15 @@ class UsersController < ApplicationController
       render json: @users, include: [:favorites, :bucket_lists, :completed_trails]
   end
 
+  def home
+    render json: @user, include: [:favorites, :bucket_lists, :completed_trails]
+  end
+
+  def show
+    @user = User.find(params[:id])
+    render json: @user, include: [:favorites, :bucket_lists, :completed_trails]
+  end 
+
   def create
       @user = User.new(user_params)
       if @user.valid?
